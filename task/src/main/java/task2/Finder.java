@@ -26,6 +26,7 @@ public class Finder {
     public Set<String> find() throws IOException {
         List<File> fileList = new ArrayList<>();
         TreeSet<String> result = new TreeSet<>();
+        // создаётся упорядоченное можество, потому что в системе, которая используется на гитхабе файлы находятся в обратном порядке, значит нужно их строго упорядочить
         if (dir.equals("")) {dir = System.getProperty("user.dir");}
         search(new File(dir), fileList);
         for(File file : fileList) {
@@ -41,6 +42,7 @@ public class Finder {
         if (root.isDirectory()){
             File[] files = root.listFiles();
             Pattern p = Pattern.compile(fileName, Pattern.LITERAL + Pattern.CASE_INSENSITIVE);
+            // флаги LITERAL - указывает чтобы метасимволы не воспринимиались, CASE_INSENSITIVE - понятно по названию
             if (files != null) {
                 for (File file : files) {
                     if (file.isDirectory()) {

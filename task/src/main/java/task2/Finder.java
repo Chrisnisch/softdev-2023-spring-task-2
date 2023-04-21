@@ -40,7 +40,7 @@ public class Finder {
     private void search(File root, List<File> fileList) {
         if (root.isDirectory()){
             File[] files = root.listFiles();
-            Pattern p = Pattern.compile(fileName, Pattern.CASE_INSENSITIVE);
+            Pattern p = Pattern.compile(fileName, Pattern.LITERAL + Pattern.CASE_INSENSITIVE);
             if (files != null) {
                 for (File file : files) {
                     if (file.isDirectory()) {

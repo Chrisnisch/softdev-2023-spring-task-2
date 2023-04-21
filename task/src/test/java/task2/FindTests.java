@@ -69,6 +69,8 @@ public class FindTests {
     public void test7() throws IOException {
         String[] input = {"-r", "axbxc.txt"};
         TreeSet<String> res = new TreeSet<>();
+        res.add(curDir + sep + "build" + sep + "resources" + sep + "test" + sep + "axbxc.txt");
+        res.add(curDir + sep + "src" + sep + "test" + sep + "resources" + sep + "axbxc.txt");
         Assertions.assertEquals(new Parser().parse(input), res);
     }
 
